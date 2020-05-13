@@ -151,7 +151,59 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 */
 
 
+// function variableInterestRate(principal, interestRate, years){
+//     const name = 'Antonio';
 
+//     let bounds = .02;
+
+//     let lowerInterestRate = interestRate - bounds;
+//     let upperInterestRate = interestRate + bounds;
+    
+//     for(let i = 0; i < 10; i++){
+//         let monthlyInterestRate = lowerInterestRate / 12 ;
+//         let periods = years * 12;
+
+//         let numerator = monthlyInterestRate *  Math.pow(1 + monthlyInterestRate, periods);
+//         let denominator = Math.pow(1+ monthlyInterestRate, periods)- 1 ;
+
+//         let monthlyRate = principal * ( numerator / denominator);
+
+//         monthlyRate = Math.round(monthlyRate * 1)/1;
+
+//         console.log(`${name}, with an interest rate of ${lowerInterestRate} your monthly rate is $${monthlyRate}`);
+
+//         lowerInterestRate = Math.round((lowerInterestRate + .005)*1000)/1000;
+//         if(lowerInterestRate > upperInterestRate){
+//             return
+//         }
+//     }
+// }
+
+
+function variableInterestRate(principal, interestRate, years, increments, bounds){
+    const name = 'Antonio';
+
+    let lowerInterestRate = interestRate - bounds;
+    let upperInterestRate = interestRate + bounds;
+    
+    while(lowerInterestRate <= upperInterestRate){
+        let monthlyInterestRate = lowerInterestRate / 12 ;
+        let periods = years * 12;
+
+        let numerator = monthlyInterestRate *  Math.pow(1 + monthlyInterestRate, periods);
+        let denominator = Math.pow(1+ monthlyInterestRate, periods)- 1 ;
+
+        let monthlyRate = principal * ( numerator / denominator);
+        monthlyRate = Math.round(monthlyRate * 1)/1;
+
+        console.log(`${name}, with an interest rate of ${lowerInterestRate} your monthly rate is $${monthlyRate}`);
+
+        lowerInterestRate = Math.round((lowerInterestRate + increments)*1000)/1000;
+    }
+}
+
+variableInterestRate(200000, .04, 30, .005,.02);
+// variableInterestRate(200000, .1, 30, .005,.05);
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
