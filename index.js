@@ -180,6 +180,8 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 // }
 
 
+
+
 function variableInterestRate(principal, interestRate, years, increments, bounds){
     const name = 'Antonio';
 
@@ -191,7 +193,7 @@ function variableInterestRate(principal, interestRate, years, increments, bounds
         let periods = years * 12;
 
         let numerator = monthlyInterestRate *  Math.pow(1 + monthlyInterestRate, periods);
-        let denominator = Math.pow(1+ monthlyInterestRate, periods)- 1 ;
+        let denominator = Math.pow(1 + monthlyInterestRate, periods) - 1 ;
 
         let monthlyRate = principal * ( numerator / denominator);
         monthlyRate = Math.round(monthlyRate * 1)/1;
@@ -202,7 +204,16 @@ function variableInterestRate(principal, interestRate, years, increments, bounds
     }
 }
 
-variableInterestRate(200000, .04, 30, .005,.02);
+// let principal = Number(window.prompt('principal'));
+// let interestRate = Number(window.prompt('interest rate'));
+// let years = Number(window.prompt('years'));
+// let increments = Number(window.prompt('increments'));
+// let bounds = Number(window.prompt('bounds'));
+
+// variableInterestRate(principal, interestRate, years, increments ,bounds);
+
+
+// variableInterestRate(200000, .04, 30, .005,.02);
 // variableInterestRate(200000, .1, 30, .005,.05);
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
@@ -217,5 +228,12 @@ variableInterestRate(200000, .04, 30, .005,.02);
 
 /* 🏡 Explore using `window.prompt()` to allow a user to input parameters in the browser */
 
+let principal = Number(window.prompt('principal'));
+let interestRate = Number(window.prompt('interest rate'));
+let years = Number(window.prompt('years'));
+
+
+let mortgage = mortgageCalculator(principal, interestRate, years, 680)
+window.alert(mortgage);
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
