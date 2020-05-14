@@ -40,6 +40,8 @@ When your math is correct, monthlyRate will equal 1073.64
 
 // let monthlyRate = principal * ( numerator / denominator);
 
+//  monthlyRate = Math.round(monthlyRate * 100) /100;
+
 // console.log(monthlyRate);
 
 
